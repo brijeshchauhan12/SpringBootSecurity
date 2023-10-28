@@ -1,0 +1,50 @@
+server:
+  port: 8768
+
+
+spring:
+  profiles:
+    active: usrRegistration
+---
+spring:
+  profile: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: admin123#BrijeshChauhan12
+    url: jdbc:mysql://localhost:3306/usrRegistration
+    username: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+welcome:
+  message: Welcome to spring world in usrRegistration
+
+#---
+#
+#spring:
+#  profile: qa
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: admin123#BrijeshChauhan12
+#    url: jdbc:mysql://localhost:3306/ET-QA
+#    username: admin
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#welcome:
+#  message: Welcome to spring world in qa
+
+#---
+#
+#spring:
+#  profile: prod
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    password: admin123#BrijeshChauhan12
+#    url: jdbc:mysql://localhost:3306/ET-PROD
+#    username: admin
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#welcome:
+#  message: Welcome to spring world in prod
