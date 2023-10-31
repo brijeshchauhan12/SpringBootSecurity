@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VarificationTokenRepository extends JpaRepository<VarificationToken,Long> {
+    VarificationToken findByToken(String token);
 }
