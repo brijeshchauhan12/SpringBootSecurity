@@ -52,16 +52,19 @@ public class AuthorizationServerConfig {
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
         RegisteredClient oidcClient = RegisteredClient.withId(  UUID.randomUUID().toString())
-                .clientId("oidc-client")
+                .clientId("api-client")
                 .clientSecret(passwordEncoder.encode("secret"))
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://127.0.0.1:8080/login/oauth2/code/oidc-client")
-                .postLogoutRedirectUri("http://127.0.0.1:8080/")
+                .redirectUri("http://127.0.0.1:8768/login/oauth2/code/api-client-oidc")
+                .redirectUri("http://127.0.0.1:8768/authorized")
                 .scope(OidcScopes.OPENID)
-                .scope("api.read")
                 .scope(OidcScopes.PROFILE)
+                .scope(OidcScopes.ADDRESS)
+                .scope(OidcScopes.EMAIL)
+                .scope(OidcScopes.PHONE)
+                .scope("api.read")
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
 
@@ -99,7 +102,7 @@ public class AuthorizationServerConfig {
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder()
-                .issuer("http://localhost:9000")
+                .issuer("http://127.0.0.1:9000")
                 .build();
     }
 }

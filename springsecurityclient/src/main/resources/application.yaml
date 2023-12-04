@@ -26,20 +26,20 @@ spring:
             client-id: api-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8080/login/oauth2/code/{registrationId}"
-            scope: openid, profile
+            redirect-uri: "http://127.0.0.1:8768/login/oauth2/code/{registrationId}"
+            scope: openid, profile, address, email
             client-name: api-client-oidc
           api-client-authorization-code:
             provider: spring
             client-id: api-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8080/authorized"
+            redirect-uri: "http://127.0.0.1:8768/authorized"
             scope: api.read
             client-name: api-client-authorization-code
         provider:
           spring:
-            issuer-uri: http://localhost:9000
+            issuer-uri: http://127.0.0.1:9000
 
 welcome:
   message: Welcome to spring world in usrRegistration
